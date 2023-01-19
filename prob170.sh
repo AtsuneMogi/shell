@@ -1,0 +1,14 @@
+#!/bin/sh
+# add.sh
+
+# 
+sum=0
+for i in $* ;
+do
+    sum=$(( sum + $i ))
+done
+
+echo $sum
+
+exit 0
+

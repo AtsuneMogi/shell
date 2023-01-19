@@ -1,0 +1,264 @@
+VIM 8.0
+GNU bash, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
+
+- prac1
+- prob2
+#!/bin/sh
+# hello.sh
+
+# display "Hello, World."
+echo "Hello, World."
+
+# end of the script
+exit 0
+
+- res2
+% ./hello.sh
+Hello, World.
+
+- prob4
+#!/bin/sh
+# q4.sh
+
+# display some arguments
+echo '$0'=$0, '$1'=$1, '$2'=$2.
+echo '$#'=$#, '$*'=$*
+shift
+echo '$0'=$0, '$1'=$1, '$2'=$2.
+echo '$#'=$#, '$*'=$*
+
+exit 0
+
+- res4
+% ./q4.sh arg1 arg2 arg3
+$0=./prob040.sh, $1=arg1, $2=arg2.
+$#=3, $*=arg1 arg2 arg3
+$0=./prob040.sh, $1=arg2, $2=arg3.
+$#=2, $*=arg2 arg3
+
+- prob5
+#!/bin/sh
+# cat.sh
+
+# combine two arguments
+echo $1$2
+
+exit 0
+
+- res5
+% ./cat.sh some thing
+something
+
+- prob6
+#!/bin/sh
+# add.sh
+
+# add the second argument to the first argument
+echo $(( $1 + $2 ))
+
+exit 0
+
+- res6
+% ./add.sh 12 24
+36
+
+- prob7
+#!/bin/sh
+# sub.sh
+
+# subtract the second argument from the first
+echo $(( $1 - $2 ))
+
+exit 0
+
+#!/bin/sh
+# mul.sh
+
+# multiply the first argument by the second argument
+echo $(( $1 * $2 ))
+
+exit 0
+
+#!/bin/sh
+# div.sh
+
+# divide the second argument from the first 
+echo $(( $1 / $2 ))
+
+exit 0
+
+#!/bin/sh
+# res.sh
+
+# display the remainder of the division of the first argument by the second 
+echo $(( $1 % $2 ))
+
+exit 0
+
+- res7
+% ./sub.sh 24 12
+12
+% ./mul.sh 15 3
+45
+% ./div.sh 42 6
+7
+% ./res.sh 42 5
+2
+
+- prob8
+#!/bin/sh
+# q8.sh
+
+# display the last argument
+shift $(( $# - 1 ))
+echo $1
+
+exit 0
+
+- res8
+% ./q8.sh the last argument
+argument
+
+- prob10
+#!/bin/sh
+# calc.sh
+
+# calculate the first and third arguments
+if [ "$2" = "+" ] ; then
+    echo $(( $1 + $3 ))
+elif [ "$2" = "-" ] ; then
+    echo $(( $1 - $3 ))
+elif [ "$2" = "*" ] ; then
+    echo $(( $1 * $3 ))
+elif [ "$2" = "/" ] ; then
+    echo $(( $1 / $3 ))
+elif [ "$2" = "%" ] ; then
+    echo $(( $1 % $3 ))
+else
+    echo "error"
+fi
+
+exit 0
+
+- res10
+% ./calc.sh 10 + 4
+14
+% ./calc.sh 10 - 4
+6
+% ./calc.sh 10 * 4
+40
+% ./calc.sh 9 / 3
+3
+% ./calc.sh 6 % 4
+2
+% ./calc.sh 3 4
+error
+
+- prob11
+#!/bin/sh
+# owner.sh
+
+# display permission of the file name in the first argument
+if [ -d $1 ] ; then
+    echo -n "d" ;
+else
+    echo -n "-" ;
+fi
+if [ -r $1 ] ; then
+    echo -n "r" ;
+else
+    echo -n "-" ;
+fi
+if [ -w $1 ] ; then
+    echo -n "w" ;
+else
+    echo -n "-" ;
+fi
+if [ -x $1 ] ; then
+    echo "x" ;
+else
+    echo "-" ;
+fi
+
+exit 0
+
+- res11
+% ./owner.sh owner.sh
+-rwx
+
+- prac2
+(1) "AA"と表示される。その理由は、3行目においてまずは単に A と表示され、次に ABC に文字列 A が格納されているため A と表示されるからである。また2行目を ABC=$A; A=BC に変更すると、 A と表示される。その理由は、2行目の ABC=$A により ABC に A の内容が格納されるが、A の内容が宣言されていないためである。
+(2) ファイル名を j2.sh とし、コマンド ./j2.sh 3 9 を実行すると、
+$1 + $2 = 12
+3 + 9 = 3
+と表示された。このような結果が得られた理由は、$1 と $2 をダブルクォートで囲むとこれらに代入された内容が表示されるのに対し、シングルクォートで囲むとこれらが単に文字列として表示されるためである。
+
+- prac3
+(1)が正しい。その理由は、x$x の内容についてまずは単に文字列 x であり、次に x の内容すなわち文字列 abc であるので、x$x は文字列 xabc と等しいからである。
+
+- prac4
+unko
+
+- prac5
+- prob13
+変数 sum, j にそれぞれ 0, 0 を代入し、sum に j を足してその値を表示した後、j に 1 を加えるという処理を j が 10 になるまで繰り返す。
+
+- prob14
+#!/bin/sh
+# q14.sh
+
+sum=0
+j=0
+while [ $j -lt 10 ] ; do sum=$(( sum + j )) ; j=$(( j + 1 )) ; echo $sum ; done
+
+exit 0
+
+- res14
+% ./q14.sh
+0
+1
+3
+6
+10
+15
+21
+28
+36
+45
+
+- prob16
+#!/bin/sh
+# q16.sh
+
+# combine all arguments
+for i in $* ;
+do
+    echo -n $i
+done
+echo ""
+
+exit 0
+
+- res16
+% ./q16.sh Yama ga ta U niv         
+YamagataUniv
+
+- prob17
+#!/bin/sh
+# add.sh
+
+# display the sum of all arguments
+sum=0
+for i in $* ;
+do
+    sum=$(( sum + $i ))
+done
+
+echo $sum
+
+exit 0
+
+- res17
+% ./add.sh 39 0 1 40            
+80
+
