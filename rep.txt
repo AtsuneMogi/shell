@@ -200,6 +200,15 @@ $1 + $2 = 12
 unko
 
 - prac5
+- prob12
+- res12
+% ./q12.sh       
+299
+% ./q12.sh       
+27
+% ./q12.sh       
+43
+
 - prob13
 変数 sum, j にそれぞれ 0, 0 を代入し、sum に j を足してその値を表示した後、j に 1 を加えるという処理を j が 10 になるまで繰り返す。
 
@@ -262,3 +271,111 @@ exit 0
 % ./add.sh 39 0 1 40            
 80
 
+- prob21
+- res21
+% sort -r -t : -n -k 3 /etc/group
+nogroup:x:65534:
+hadoop:x:1008:
+eibroot:x:1000:
+docker:x:999:
+_chrony:x:137:
+nslcd:x:136:
+rdma:x:135:
+clamav:x:134:
+_cvsadmin:x:133:
+postgres:x:132:
+mysql:x:131:
+zeroinst:x:130:
+nopasswdlogin:x:129:
+lightdm:x:128:
+xrdp:x:127:
+sambashare:x:126:eibroot
+gdm:x:125:
+geoclue:x:124:
+colord:x:123:
+avahi:x:122:
+pulse-access:x:121:
+pulse:x:120:
+saned:x:119:
+scanner:x:118:saned
+whoopsie:x:117:
+lpadmin:x:116:eibroot
+ssh:x:115:
+rtkit:x:114:
+bluetooth:x:113:
+avahi-autoipd:x:112:
+uuidd:x:111:
+ssl-cert:x:110:postgres
+mlocate:x:109:
+netdev:x:108:
+messagebus:x:107:
+syslog:x:106:
+crontab:x:105:
+input:x:104:
+systemd-resolve:x:103:
+systemd-network:x:102:
+systemd-journal:x:101:
+users:x:100:
+games:x:60:
+staff:x:50:
+plugdev:x:46:eibroot
+sasl:x:45:
+video:x:44:
+utmp:x:43:
+shadow:x:42:
+gnats:x:41:
+src:x:40:
+irc:x:39:
+list:x:38:
+operator:x:37:
+backup:x:34:
+www-data:x:33:
+dip:x:30:eibroot
+audio:x:29:pulse
+sudo:x:27:eibroot
+tape:x:26:
+floppy:x:25:
+cdrom:x:24:eibroot
+voice:x:22:
+fax:x:21:
+dialout:x:20:
+kmem:x:15:
+proxy:x:13:
+man:x:12:
+uucp:x:10:
+news:x:9:
+mail:x:8:
+lp:x:7:
+disk:x:6:
+tty:x:5:
+adm:x:4:syslog,eibroot
+sys:x:3:
+bin:x:2:
+daemon:x:1:
+root:x:0:
+
+- prob22
+- res22-1
+% echo "<html><body>" |sed 's/<\([ˆ>]*\)>.*/\1/'
+<html><body>
+- res22-2
+% echo "int main (void)" |sed 's:(\([a-z]*\)):\1:'
+int main void
+- res22-3
+% echo "int main (void)" |sed 's:.*(\([a-z]*\)):\1:'
+void
+- res22-4
+% echo "/tmp/mytest.sh.tgz" |sed 's![ˆ.]*\(\..*\)!\1!'
+/tmp/mytest.sh.tgz
+- res22-5
+% echo "/tmp/mytest.sh.tgz" |sed 's=[/.]=-=g'
+-tmp-mytest-sh-tgz
+
+- prob23
+
+- res23
+
+- prob24
+
+- res24
+        
