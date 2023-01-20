@@ -23,6 +23,7 @@ Hello, World.
 # display some arguments
 echo '$0'=$0, '$1'=$1, '$2'=$2.
 echo '$#'=$#, '$*'=$*
+# shift arguments to left
 shift
 echo '$0'=$0, '$1'=$1, '$2'=$2.
 echo '$#'=$#, '$*'=$*
@@ -354,6 +355,12 @@ bin:x:2:
 daemon:x:1:
 root:x:0:
 
+rオプションにより逆順
+tオプションにより:が識別子として認識される
+nオプションにより数字として並び替えられる
+kオプションにより3項目が識別の対象になる
+
+
 - prob22
 - res22-1
 % echo "<html><body>" |sed 's/<\([ˆ>]*\)>.*/\1/'
@@ -378,4 +385,3 @@ void
 - prob24
 
 - res24
-
