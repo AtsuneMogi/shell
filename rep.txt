@@ -1,4 +1,5 @@
 VIM 8.0
+zsh 5.4.2 (x86_64-ubuntu-linux-gnu)
 GNU bash, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
 
 - prac1
@@ -379,8 +380,22 @@ void
 -tmp-mytest-sh-tgz
 
 - prob23
+#!/bin/sh
+# q23.sh
 
-- res23
+# create temporary file
+touch tempfile
+for i in bar*
+do
+    # write output to temporary file
+    sed 's:bgein:begin:g' $i > tempfile
+    # copy temporary file to current file
+    cp tempfile $i
+done
+# remove temporary file
+rm -f tempfile
+
+exit 0
 
 - prob24
 #!/bin/sh
@@ -389,3 +404,83 @@ void
 awk -F : '{print $3"="$1}' $1 | sort -r -t = -n -k 1
 
 - res24
+% ./getgid.sh /etc/group
+65534=nogroup
+1008=hadoop
+1000=eibroot
+999=docker
+137=_chrony
+136=nslcd
+135=rdma
+134=clamav
+133=_cvsadmin
+132=postgres
+131=mysql
+130=zeroinst
+129=nopasswdlogin
+128=lightdm
+127=xrdp
+126=sambashare
+125=gdm
+124=geoclue
+123=colord
+122=avahi
+121=pulse-access
+120=pulse
+119=saned
+118=scanner
+117=whoopsie
+116=lpadmin
+115=ssh
+114=rtkit
+113=bluetooth
+112=avahi-autoipd
+111=uuidd
+110=ssl-cert
+109=mlocate
+108=netdev
+107=messagebus
+106=syslog
+105=crontab
+104=input
+103=systemd-resolve
+102=systemd-network
+101=systemd-journal
+100=users
+60=games
+50=staff
+46=plugdev
+45=sasl
+44=video
+43=utmp
+42=shadow
+41=gnats
+40=src
+39=irc
+38=list
+37=operator
+34=backup
+33=www-data
+30=dip
+29=audio
+27=sudo
+26=tape
+25=floppy
+24=cdrom
+22=voice
+21=fax
+20=dialout
+15=kmem
+13=proxy
+12=man
+10=uucp
+9=news
+8=mail
+7=lp
+6=disk
+5=tty
+4=adm
+3=sys
+2=bin
+1=daemon
+0=root
